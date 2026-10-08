@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VN Smart | Loja</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="products-page">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="mini-brand" href="produtos.html" aria-label="Página inicial da loja">
+        <img src="assets/logo.jpeg" alt="VN Smart" />
+        <div>
+          <strong>VN SMART</strong>
+          <span>ACESSÓRIOS PARA CELULAR</span>
+        </div>
+      </a>
+
+      <div class="topbar-actions">
+        <div class="phone-badge" id="phoneBadge"></div>
+        <a class="btn btn-outline" href="admin.html">Painel administrativo</a><button id="changePhone" class="btn btn-outline">Trocar telefone</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="products-container">
+    <section class="hero-products">
+      <div>
+        <span class="brand-kicker">VN SMART • ASSISTÊNCIA TÉCNICA</span>
+        <h1>Escolha o que deseja comprar</h1>
+        <p>Tela, bateria, carregadores e acessórios para seu celular.</p>
+      </div>
+      <div class="hero-line"></div>
+    </section>
+
+    <nav class="category-tabs" aria-label="Categorias de produtos">
+      <button class="category-tab active" data-category="todos">Todos</button>
+      <button class="category-tab" data-category="capas">Capas</button>
+      <button class="category-tab" data-category="fones-bluetooth">Fones Bluetooth</button>
+      <button class="category-tab" data-category="fones-com-fio">Fones com fio</button>
+      <button class="category-tab" data-category="carregadores">Carregadores</button>
+    </nav>
+
+    <div class="products-layout">
+      <section>
+        <div id="productList" class="product-list"></div>
+      </section>
+
+      <aside class="cart-card">
+        <div class="cart-top-line"></div>
+        <div class="cart-header">
+          <div>
+            <span class="cart-kicker">SEU PEDIDO</span>
+            <h2>Resumo</h2>
+          </div>
+          <span id="cartCount" class="cart-count">0 itens</span>
+        </div>
+
+        <div id="cartItems" class="cart-items">
+          <div class="empty-cart">
+            <div class="empty-icon">🛒</div>
+            <strong>Nenhum item ainda</strong>
+            <span>Selecione um produto ao lado.</span>
+          </div>
+        </div>
+
+        <div class="cart-footer">
+          <div class="total-row">
+            <span>Total</span>
+            <strong id="cartTotal">R$ 0,00</strong>
+          </div>
+          <button id="finishOrder" class="btn btn-primary btn-full">FINALIZAR PEDIDO</button>
+          <p class="cart-note">Seu pedido será associado ao telefone informado.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <div id="successModal" class="modal hidden">
+    <div class="modal-box">
+      <div class="success-ring"><span>✓</span></div>
+      <span class="brand-kicker">VN SMART</span>
+      <h2>Pedido recebido!</h2>
+      <p id="successText"></p>
+      <button id="closeModal" class="btn btn-primary btn-full">FECHAR</button>
+    </div>
+  </div>
+
+  <script src="store.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

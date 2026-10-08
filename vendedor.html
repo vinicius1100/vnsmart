@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VN Smart | Acesso do Vendedor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-page">
+  <div class="gold-glow glow-one"></div>
+  <div class="gold-glow glow-two"></div>
+
+  <main class="login-shell">
+    <section class="welcome-card seller-login-card">
+      <div class="logo-frame">
+        <img src="assets/logo.jpeg" alt="VN Smart" class="logo-main" />
+      </div>
+
+      <div class="welcome-copy">
+        <span class="brand-kicker">VN SMART • ASSISTÊNCIA TÉCNICA</span>
+        <h1>Login do <span>Vendedor</span></h1>
+        <p>Entre com o nome e a senha definidos pelo administrador.</p>
+      </div>
+
+      <form id="sellerLoginForm" class="phone-form" novalidate>
+        <label for="sellerLoginName">Nome do vendedor</label>
+        <div class="input-wrap">
+          <span class="input-prefix">👤</span>
+          <input id="sellerLoginName" type="text" autocomplete="username"
+                 placeholder="Digite seu nome" maxlength="80" required />
+        </div>
+
+        <label for="sellerLoginPassword">Senha</label>
+        <div class="input-wrap">
+          <span class="input-prefix">🔒</span>
+          <input id="sellerLoginPassword" type="password" autocomplete="current-password"
+                 placeholder="Digite sua senha" maxlength="60" required />
+        </div>
+
+        <p id="sellerLoginError" class="form-error" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary btn-main">ENTRAR NA CONTA</button>
+      </form>
+
+      <div class="gold-divider"><span></span></div>
+      <a class="admin-link" href="index.html">Voltar para a loja</a>
+    </section>
+  </main>
+
+  <script src="store.js"></script>
+  <script src="vendedor.js"></script>
+</body>
+</html>

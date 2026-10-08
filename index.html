@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VN Smart | Loja</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-page">
+  <div class="gold-glow glow-one"></div>
+  <div class="gold-glow glow-two"></div>
+
+  <main class="login-shell">
+    <section class="welcome-card">
+      <div class="logo-frame">
+        <img src="assets/logo.jpeg" alt="VN Smart - Assistência Técnica" class="logo-main" />
+      </div>
+
+      <div class="welcome-copy">
+        <span class="brand-kicker">VN SMART • ASSISTÊNCIA TÉCNICA</span>
+        <h1>Bem-vindo à <span>VN SMART</span></h1>
+        <p>Informe seu telefone para começar suas compras.</p>
+      </div>
+
+      <form id="phoneForm" class="phone-form" novalidate>
+        <label for="phone">Número de telefone</label>
+        <div class="input-wrap">
+          <span class="input-prefix">📱</span>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            inputmode="numeric"
+            autocomplete="tel"
+            placeholder="(81) 99999-9999"
+            maxlength="15"
+            required
+          />
+        </div>
+        <p class="form-hint">Usaremos o número para identificar seu pedido.</p>
+        <p id="phoneError" class="form-error" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary btn-main">CONTINUAR</button>
+      </form>
+
+      <div class="gold-divider"><span></span></div>
+      <p class="tagline">TELA • BATERIA • CARREGADORES • ACESSÓRIOS</p>
+      <div class="login-links"><a class="admin-link" href="cliente.html">Painel do cliente</a><a class="admin-link" href="vendedor.html">Acesso do vendedor</a><a class="admin-link" href="admin.html">Acesso administrativo</a></div>
+    </section>
+  </main>
+
+  <script src="store.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

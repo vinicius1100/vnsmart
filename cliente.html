@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VN Smart | Painel do Cliente</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="products-page seller-panel-page">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="mini-brand" href="cliente.html">
+        <img src="assets/logo.jpeg" alt="VN Smart" />
+        <div><strong>VN SMART</strong><span>PAINEL DO CLIENTE</span></div>
+      </a>
+      <div class="topbar-actions">
+        <div class="phone-badge" id="customerPhoneBadge"></div>
+        <button id="customerLogout" class="btn btn-outline">SAIR</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="products-container">
+    <section class="hero-products seller-hero">
+      <div>
+        <span class="brand-kicker">VN SMART • ASSISTÊNCIA TÉCNICA</span>
+        <h1>Olá! <span>Bem-vindo à VN Smart</span></h1>
+        <p>Consulte seus pedidos e encontre produtos e acessórios para seu celular.</p>
+      </div>
+      <div class="hero-line"></div>
+    </section>
+
+    <section class="seller-dashboard-grid">
+      <article class="admin-main-card seller-welcome-card">
+        <span class="cart-kicker">SEU PERFIL</span>
+        <h2>Dados do cliente</h2>
+        <div class="seller-profile-row">
+          <div class="seller-avatar large">👤</div>
+          <div>
+            <strong>Cliente VN Smart</strong>
+            <p id="customerPhone"></p>
+            <span class="status-pill on">Conta ativa</span>
+          </div>
+        </div>
+        <div class="seller-panel-actions">
+          <a class="btn btn-primary" href="produtos.html">VER PRODUTOS</a>
+          <button id="changeCustomerPhone" class="btn btn-outline">TROCAR TELEFONE</button>
+        </div>
+      </article>
+
+      <article class="admin-main-card">
+        <div class="section-heading compact">
+          <div><span class="cart-kicker">HISTÓRICO</span><h2>Meus pedidos</h2></div>
+        </div>
+        <div id="customerOrders" class="admin-orders"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="store.js"></script>
+  <script src="cliente.js"></script>
+</body>
+</html>

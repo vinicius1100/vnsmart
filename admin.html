@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VN Smart | Painel Administrativo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-page">
+  <div class="gold-glow glow-one"></div>
+  <div class="gold-glow glow-two"></div>
+
+  <div id="adminLogin" class="admin-login-overlay">
+    <form id="adminLoginForm" class="admin-login-card">
+      <img src="assets/logo.jpeg" alt="VN Smart" class="admin-login-logo" />
+      <span class="brand-kicker">ÁREA RESTRITA</span>
+      <h1>Painel administrativo</h1>
+      <p>Digite a senha para gerenciar os produtos da VN Smart.</p>
+      <label for="adminPassword">Senha</label>
+      <input id="adminPassword" class="admin-input" type="password" autocomplete="current-password" placeholder="Digite a senha" required />
+      <p id="adminLoginError" class="form-error"></p>
+      <button class="btn btn-primary btn-full" type="submit">ENTRAR NO PAINEL</button>
+      <a class="admin-back-link" href="produtos.html">Voltar para a loja</a>
+    </form>
+  </div>
+
+  <div id="adminApp" class="hidden">
+    <header class="admin-topbar">
+      <div class="admin-topbar-inner">
+        <a class="mini-brand" href="produtos.html">
+          <img src="assets/logo.jpeg" alt="VN Smart" />
+          <div><strong>VN SMART</strong><span>ADMIN • ASSISTÊNCIA TÉCNICA</span></div>
+        </a>
+        <div class="admin-actions">
+          <a class="btn btn-outline" href="cliente.html">Painel cliente</a><a class="btn btn-outline" href="painel-vendedor.html">Painel vendedor</a><a class="btn btn-outline" href="produtos.html">Abrir loja</a>
+          <button id="logoutAdmin" class="btn btn-outline" type="button">Sair</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="admin-container">
+      <section class="admin-hero">
+        <div>
+          <span class="brand-kicker">VN SMART • ADMIN</span>
+          <h1>Controle a VN Smart</h1>
+          <p>Gerencie produtos, vendedores e pedidos da VN Smart em um só lugar.</p>
+        </div>
+        <div class="admin-stat-grid">
+          <div class="admin-stat"><span>Produtos ativos</span><strong id="statProducts">0</strong></div>
+          <div class="admin-stat"><span>Pedidos</span><strong id="statOrders">0</strong></div>
+          <div class="admin-stat"><span>Vendedores ativos</span><strong id="statSellers">0</strong></div>
+        </div>
+      </section>
+
+      <section class="admin-grid">
+        <div class="admin-main-card">
+          <div class="section-heading">
+            <div><span class="cart-kicker">CATÁLOGO</span><h2>Produtos</h2></div>
+            <button id="newProduct" class="btn btn-primary" type="button">+ NOVO PRODUTO</button>
+          </div>
+          <div class="admin-filters">
+            <input id="searchProducts" class="admin-input" type="search" placeholder="Pesquisar produto..." />
+            <select id="filterCategory" class="admin-input">
+              <option value="todos">Todas as categorias</option>
+              <option value="capas">Capas</option>
+              <option value="fones-bluetooth">Fones Bluetooth</option>
+              <option value="fones-com-fio">Fones com fio</option>
+              <option value="carregadores">Carregadores</option>
+            </select>
+          </div>
+          <div id="adminProducts" class="admin-product-list"></div>
+        </div>
+
+        <aside class="admin-side-column">
+          <div class="admin-side-card">
+            <div class="section-heading compact"><div><span class="cart-kicker">PEDIDOS</span><h2>Últimos pedidos</h2></div></div>
+            <div id="adminOrders" class="admin-orders"></div>
+          </div>
+          <div class="admin-side-card tips-card">
+            <span class="cart-kicker">DICAS</span>
+            <h3>Como usar</h3>
+            <p>Use “Novo produto” para cadastrar. Clique em “Editar” para alterar preço ou descrição. O cliente verá as alterações automaticamente neste navegador.</p>
+            <button id="resetProducts" class="btn btn-outline btn-full" type="button">RESTAURAR PRODUTOS PADRÃO</button>
+          </div>
+        </aside>
+      </section>
+
+      <section class="admin-main-card seller-admin-card">
+        <div class="section-heading">
+          <div><span class="cart-kicker">EQUIPE</span><h2>Contas de vendedores</h2></div>
+          <button id="newSeller" class="btn btn-primary" type="button">+ NOVO VENDEDOR</button>
+        </div>
+        <p class="seller-intro">Crie contas individuais para sua equipe e ative ou desative o acesso quando precisar.</p>
+        <div id="adminSellers" class="admin-seller-list"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="productModal" class="modal hidden">
+    <div class="admin-modal-box">
+      <button id="closeProductModal" class="modal-close" type="button" aria-label="Fechar">×</button>
+      <span class="brand-kicker">CATÁLOGO VN SMART</span>
+      <h2 id="productModalTitle">Novo produto</h2>
+      <form id="productForm" class="admin-form">
+        <input type="hidden" id="productId" />
+        <label>Nome do produto<input id="productName" class="admin-input" required maxlength="80" /></label>
+        <label>Categoria
+          <select id="productCategory" class="admin-input" required>
+            <option value="capas">Capas</option>
+            <option value="fones-bluetooth">Fones Bluetooth</option>
+            <option value="fones-com-fio">Fones com fio</option>
+            <option value="carregadores">Carregadores</option>
+          </select>
+        </label>
+        <label>Descrição<textarea id="productDesc" class="admin-input" rows="3" maxlength="180" required></textarea></label>
+        <div class="admin-form-row">
+          <label>Preço (R$)<input id="productPrice" class="admin-input" type="number" min="0" step="0.01" required /></label>
+          <label>Ícone<input id="productIcon" class="admin-input" maxlength="3" value="◈" /></label>
+        </div>
+        <label class="switch-row"><input id="productActive" type="checkbox" checked /><span>Produto disponível na loja</span></label>
+        <div class="admin-form-actions"><button type="button" id="cancelProduct" class="btn btn-outline">CANCELAR</button><button type="submit" class="btn btn-primary">SALVAR PRODUTO</button></div>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="sellerModal" class="modal hidden">
+    <div class="admin-modal-box">
+      <button id="closeSellerModal" class="modal-close" type="button" aria-label="Fechar">×</button>
+      <span class="brand-kicker">EQUIPE VN SMART</span>
+      <h2 id="sellerModalTitle">Novo vendedor</h2>
+      <form id="sellerForm" class="admin-form">
+        <input type="hidden" id="sellerId" />
+        <label>Nome do vendedor<input id="sellerName" class="admin-input" required maxlength="80" placeholder="Ex.: João Silva" /></label>
+        <label>Usuário de acesso<input id="sellerUsername" class="admin-input" required maxlength="40" autocomplete="username" placeholder="Ex.: joao" /></label>
+        <label>Senha<input id="sellerPassword" class="admin-input" type="password" required minlength="4" maxlength="60" autocomplete="new-password" placeholder="Mínimo de 4 caracteres" /></label>
+        <label class="switch-row"><input id="sellerActive" type="checkbox" checked /><span>Conta ativa</span></label>
+        <div class="admin-form-actions"><button type="button" id="cancelSeller" class="btn btn-outline">CANCELAR</button><button type="submit" class="btn btn-primary">SALVAR VENDEDOR</button></div>
+        <p class="form-hint seller-security-note">Esta versão salva as contas no navegador (localStorage). Para uso em vários computadores com segurança real, será necessário um servidor e banco de dados.</p>
+      </form>
+    </div>
+  </div>
+
+  <script src="store.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
